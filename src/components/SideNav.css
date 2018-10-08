@@ -3,9 +3,26 @@
   height: 700px;
   background-color: #292D33;
   padding-left: 24px;
-  padding-right: 24px;
   display: none;
 }
 
 .change .sideNav {
+}
+
+.restaurant-list-info {
+  height: 100%;
+  color: #F3D5EC;
+  font-size: 20px;
+  list-style-type: none;
+  overflow-y: scroll;
+  padding: 0;
+}
+
+.restaurant-list {
+  height: calc(100% - 60px);
+  padding: 0;
+}
+
+li {
+  padding: 10px 0 0 0;
 }

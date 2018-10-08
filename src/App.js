@@ -88,7 +88,6 @@ class App extends Component {
           restaurants: response.data.response.groups[0].items
         //calls render map
         }, this.renderMap())
-        console.log(response)
       })
       .catch(error => {
         console.log('Error: '+ error)
@@ -108,7 +107,7 @@ class App extends Component {
           </div>
         </div>
         <div className='app-window'>
-          <SideNav />
+          <SideNav restaurants={this.state.restaurants}/>
           <div id='map' />
         </div>
       </div>
