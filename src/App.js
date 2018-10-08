@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import './App.css';
 import SideNav from './components/SideNav.js';
+import HamburgerMenu from './components/HamburgerMenu.js';
+import './components/HamburgerMenu.css';
 
 
 
@@ -40,7 +42,7 @@ class App extends Component {
         '<div className="content">' +
           '<div className="siteNotice">' +
           '</div>' +
-          '<h1 id="firstHeading className="firstHeading">' + myRestaurant.venue.name + '</h1>' +
+          '<h2 id="firstHeading className="firstHeading">' + myRestaurant.venue.name + '</h2>' +
           '<div className="bodyContent">' +
             '<p><strong>Location: </strong><br>' +
             myRestaurant.venue.location.formattedAddress[0] + '<br>' +
@@ -98,23 +100,30 @@ class App extends Component {
   render() {
     return (
       <div className='wholePage'>
-        <SideNav />
-
-        <div id='map'>
+        <div className='headersBar'>
+          <div className="menu">
+            <HamburgerMenu />
+          </div>
+          <div className="app-title">
+            <h1>Hannah&#39;s Favorite Sushi Restaurants</h1>
+          </div>
+        </div>
+        <div className='app-window'>
+          <SideNav />
+          <div id='map' />
         </div>
       </div>
-
     );
   }
 }
 
 function loadScript (url) {
-  const index = window.document.getElementsByTagName('script')[0]
-  const script = window.document.createElement('script')
-  script.src = url
-  script.async = true
-  script.defer = true
-  index.parentNode.insertBefore(script, index)
+  const index = window.document.getElementsByTagName('script')[0];
+  const script = window.document.createElement('script');
+  script.src = url;
+  script.async = true;
+  script.defer = true;
+  index.parentNode.insertBefore(script, index);
 }
 
 export default App;
