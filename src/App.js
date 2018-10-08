@@ -3,10 +3,9 @@ import axios from 'axios';
 
 import './App.css';
 import SideNav from './components/SideNav.js';
+import './components/SideNav.css';
 import HamburgerMenu from './components/HamburgerMenu.js';
 import './components/HamburgerMenu.css';
-
-
 
 class App extends Component {
 

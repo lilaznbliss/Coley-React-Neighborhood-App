@@ -1,11 +1,11 @@
-.sideNav{
+.sideNav {
   width: 30%;
   height: 700px;
   background-color: #292D33;
   padding-left: 24px;
-
   padding-right: 24px;
+  display: none;
 }
-.sideNav .change{
 
+.change .sideNav {
 }

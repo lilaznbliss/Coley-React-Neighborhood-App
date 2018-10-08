@@ -3,7 +3,6 @@ import './SideNav.css';
 
 class SideNav extends Component {
 
-
   render() {
     return(
        <div className="sideNav bar">
@@ -14,8 +13,6 @@ class SideNav extends Component {
       </div>
     )
   }
-
-
 }
 
 export default SideNav;
