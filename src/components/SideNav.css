@@ -2,6 +2,8 @@
   width: 30%;
   height: 700px;
   background-color: #292D33;
+  background-image: url('https://image.ibb.co/n9poG9/black_and_white_black_and_white_rough_978503.jpg');
+  background-size: cover;
   padding-left: 24px;
   display: none;
 }
@@ -9,9 +11,53 @@
 .change .sideNav {
 }
 
+.search-filter-bar{
+  display: flex;
+  flex-direction: row;
+  margin-top: 24px;
+}
+
+.filter-button{
+  height: 40px;
+  width: 100px;
+  padding: 12px 12px 12px 12px;
+  margin-right: 12px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 14px;
+  background-color: #646669;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  color: #D3DBE6;
+}
+
+input[type=text] {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 14px;
+    color: #646669;
+    width: 130px;
+    background-color: rgb(211, 211, 211, 80%);
+    border: none;
+    border-radius: 0 20px 20px 0;
+    padding-left: 12px;
+    background-image: url(../images/LocationSearch.svg);
+    background-position: 10px 8px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    margin-right: 24px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
+
 .restaurant-list-info {
   height: 100%;
-  color: #F3D5EC;
+  color: #D3DBE6;
   font-size: 20px;
   list-style-type: none;
   overflow-y: scroll;
@@ -24,5 +70,14 @@
 }
 
 li {
-  padding: 10px 0 0 0;
+  padding: 10px 0 10px 24px;
+  background-color: rgb(41, 45, 51, 50%);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.selected {
+  background-color: rgb(243, 213, 236, 50%);
+  border: 3px solid #646669;
+  color: #646669;
 }

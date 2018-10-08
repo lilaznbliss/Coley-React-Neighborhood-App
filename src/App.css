@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: row;
   padding-left: 24px;
-  background-color: #292D33;
+  background-color: #646669;
   align-items: center;
 }
 
@@ -49,7 +49,7 @@
 
 h1{
   font-size: 24px;
-  color: #F3D5EC;
+  color: #D3DBE6;
   text-align: center;
   font: "Roboto", "Arial", "Helvetica", sans-serif;
   margin: 0;

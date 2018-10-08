@@ -10,7 +10,8 @@ import './components/HamburgerMenu.css';
 class App extends Component {
 
   state = {
-    restaurants: []
+    restaurants: [],
+    selectedRestaurantId: ''
   }
 
   componentDidMount() {
@@ -62,9 +63,10 @@ class App extends Component {
       })
 
       //Creates an event listener for each Marker
-      marker.addListener('click', ()=> {
+      marker.addListener('click', () => {
         infoWindow.setContent(contentInfo);
-        infoWindow.open(map,marker)
+        infoWindow.open(map,marker);
+        this.setState({ selectedRestaurantId: myRestaurant.venue.id})
       })
     })
   }
@@ -107,7 +109,7 @@ class App extends Component {
           </div>
         </div>
         <div className='app-window'>
-          <SideNav restaurants={this.state.restaurants}/>
+          <SideNav restaurants={this.state.restaurants} selectedRestaurantId={this.state.selectedRestaurantId}/>
           <div id='map' />
         </div>
       </div>
