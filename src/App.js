@@ -11,8 +11,12 @@ class App extends Component {
 
   state = {
     restaurants: [],
-    selectedRestaurantId: ''
-  }
+    selectedRestaurantId: '',
+    markersArray: []
+  };
+
+  infoWindow;
+  map;
 
   componentDidMount() {
     this.getRestaurants()
@@ -27,50 +31,92 @@ class App extends Component {
 
   initMap = () => {
     //initialize the map
-    const map = new window.google.maps.Map(document.getElementById('map'), {
+    this.map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 38.8706391, lng: -104.770058},
       zoom: 10.83
     })
 
-    let infoWindow = new window.google.maps.InfoWindow({
+    this.infoWindow = new window.google.maps.InfoWindow({
       maxWidth: 200
     })
 
-    this.state.restaurants.forEach(myRestaurant => {
-      //restaurant content info string
-      let contentInfo =
-        '<div className="content">' +
-          '<div className="siteNotice">' +
-          '</div>' +
-          '<h2 id="firstHeading className="firstHeading">' + myRestaurant.venue.name + '</h2>' +
-          '<div className="bodyContent">' +
-            '<p><strong>Location: </strong><br>' +
-            myRestaurant.venue.location.formattedAddress[0] + '<br>' +
-            myRestaurant.venue.location.formattedAddress[1] + '<br>' +
-            myRestaurant.venue.location.formattedAddress[2] + '</p>' +
-            /*myRestaurant.venue.delivery ?
-              '<p><strong>Delivery:  </strong><br>' +
-              myRestaurant.venue.delivery +
-              '</p>' : '' +*/
-          '</div>' +
-        '</div>';
+    let markers = [];
 
-      //Create a marker for each restaurant location
-      const marker = new window.google.maps.Marker({
-        position: {lat: myRestaurant.venue.location.lat, lng: myRestaurant.venue.location.lng},
-        map: map,
-        title: myRestaurant.venue.name,
-      })
+    this.state.restaurants.forEach(myRestaurant => {
+
+      let contentInfo = this.makeContentInfo(myRestaurant);
+      let marker = this.makeMarker(myRestaurant);
+      markers.push(marker);
 
       //Creates an event listener for each Marker
       marker.addListener('click', () => {
-        infoWindow.setContent(contentInfo);
-        infoWindow.open(map,marker);
-        this.setState({ selectedRestaurantId: myRestaurant.venue.id})
+        this.openMarker(myRestaurant, marker, contentInfo);
       })
+    })
+
+    this.setState({markersArray: markers});
+
+    // Removes the highlighting on the restaurant list item when the content info is closed
+    window.google.maps.event.addListener(this.infoWindow, 'closeclick', () => {
+      this.state.markersArray.forEach(marker => {
+        this.bounceOff(marker);
+      })
+      let selectedElement = document.getElementsByClassName('selected')[0];
+      selectedElement.classList.remove('selected');
+      this.setState({selectedRestaurantId: ''});
+   })
+  }
+
+  //function that makes the restaurant content info string
+  makeContentInfo = (restaurant) => {
+    return '<div className="content">' +
+      '<div className="siteNotice">' +
+      '</div>' +
+      '<h2 id="firstHeading className="firstHeading">' + restaurant.venue.name + '</h2>' +
+      '<div className="bodyContent">' +
+        '<p><strong>Location: </strong><br>' +
+        restaurant.venue.location.formattedAddress[0] + '<br>' +
+        restaurant.venue.location.formattedAddress[1] + '<br>' +
+        restaurant.venue.location.formattedAddress[2] + '</p>' +
+        '</div>' +
+        '</div>';
+      }
+
+  //Funcion that creates a marker for each restaurant location
+  makeMarker = (restaurant) => {
+    return new window.google.maps.Marker({
+      position: {lat: restaurant.venue.location.lat, lng: restaurant.venue.location.lng},
+      map: this.map,
+      title: restaurant.venue.name,
+      animation: null,
+      restaurantId: restaurant.venue.id
     })
   }
 
+  //Function that turns on the bounce animation on a selected marker
+  bounceOn = (marker) => {
+    marker.setAnimation(window.google.maps.Animation.BOUNCE);
+  }
+
+  //Function that turns off the bounce animation on a deselected marker
+  bounceOff = (marker) => {
+    marker.setAnimation(null);
+  }
+
+  //Function that opens the marker for a restaurant
+  openMarker = (restaurant, marker, contentInfo) => {
+    this.state.markersArray.forEach(m => {
+        if (m !== marker) {
+          this.bounceOff(m);
+      }
+    });
+    this.infoWindow.setContent(contentInfo);
+    this.infoWindow.open(this.map, marker);
+    this.bounceOn(marker);
+    this.setState({ selectedRestaurantId: restaurant.venue.id});
+  }
+
+  //Function that retrieves restaurant information from FourSquare
   getRestaurants = () => {
     //Creates Endpoint and Query Parameters
     const endPoint = 'https://api.foursquare.com/v2/venues/explore?'
@@ -109,7 +155,13 @@ class App extends Component {
           </div>
         </div>
         <div className='app-window'>
-          <SideNav restaurants={this.state.restaurants} selectedRestaurantId={this.state.selectedRestaurantId}/>
+          <SideNav
+            restaurants={this.state.restaurants}
+            selectedRestaurantId={this.state.selectedRestaurantId}
+            markersArray={this.state.markersArray}
+            makeContentInfo={this.makeContentInfo}
+            makeMarker={this.makeMarker}
+            openMarker={this.openMarker}/>
           <div id='map' />
         </div>
       </div>

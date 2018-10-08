@@ -1,6 +1,6 @@
 .sideNav {
   width: 30%;
-  height: 700px;
+  height: calc(100% - 60px);
   background-color: #292D33;
   background-image: url('https://image.ibb.co/n9poG9/black_and_white_black_and_white_rough_978503.jpg');
   background-size: cover;
@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: row;
   margin-top: 24px;
+  height: 40px;
 }
 
 .filter-button{
@@ -34,7 +35,8 @@ input[type=text] {
     font-family: "Roboto", "Arial", sans-serif;
     font-size: 14px;
     color: #646669;
-    width: 130px;
+    width: 20%;
+    height: 40px;
     background-color: rgb(211, 211, 211, 80%);
     border: none;
     border-radius: 0 20px 20px 0;
@@ -43,8 +45,8 @@ input[type=text] {
     background-position: 10px 8px;
     background-size: 24px 24px;
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    margin-right: 24px;
+    padding: 0 20px 0 40px;
+    margin-right: 12px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
@@ -56,16 +58,17 @@ input[type=text]:focus {
 
 
 .restaurant-list-info {
-  height: 100%;
+  height: calc(100% - 60px);
   color: #D3DBE6;
   font-size: 20px;
   list-style-type: none;
   overflow-y: scroll;
   padding: 0;
+  cursor: pointer;
 }
 
 .restaurant-list {
-  height: calc(100% - 60px);
+  height: calc(100% - 64px);
   padding: 0;
 }
 

@@ -1,5 +1,15 @@
+.wholePage {
+  height: 800px;
+  width: 100%;
+}
+
+.menu{
+  height: auto;
+  width: 60px;
+  align-items: center;
+}
 #map {
-  height: 700px;
+  height: calc(100% - 60px);
   width: 100%;
 }
 
@@ -45,6 +55,8 @@
 .app-window{
   display: flex;
   flex-direction: row;
+  height: calc(100% - 60px);
+  width: 100%;
 }
 
 h1{

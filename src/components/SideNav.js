@@ -4,17 +4,27 @@ import './SideNav.css';
 class SideNav extends Component {
 
   buildRestaurantList() {
-    console.log(this.props.selectedRestaurantId);
 
     return this.props.restaurants.map(restaurant => {
       let restaurantListItem;
+
       if (restaurant.venue.id === this.props.selectedRestaurantId) {
-        restaurantListItem = <li className="selected" key={restaurant.venue.id}> {restaurant.venue.name} </li>;
+        restaurantListItem = <li className="selected" key={restaurant.venue.id} onClick={() => {this.openMarker(restaurant)}}> {restaurant.venue.name} </li>;
       } else {
-        restaurantListItem = <li key={restaurant.venue.id}> {restaurant.venue.name} </li>;
+        restaurantListItem = <li key={restaurant.venue.id} onClick={() => {this.openMarker(restaurant)}}> {restaurant.venue.name} </li>;
       }
+
       return restaurantListItem;
     })
+  }
+
+  //Creates and opens a marker for the restaurant list item
+  openMarker = (restaurant) => {
+    let contentInfo = this.props.makeContentInfo(restaurant);
+    let marker = this.props.markersArray.find(m => {
+      return (m.restaurantId === restaurant.venue.id ? m : null)
+    });
+    this.props.openMarker(restaurant, marker, contentInfo);
   }
 
   render() {
