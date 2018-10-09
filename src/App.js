@@ -11,6 +11,7 @@ class App extends Component {
 
   state = {
     restaurants: [],
+    visibleRestaurants: [],
     selectedRestaurantId: '',
     markersArray: []
   };
@@ -19,14 +20,13 @@ class App extends Component {
   map;
 
   componentDidMount() {
-    this.getRestaurants()
+    this.getRestaurants();
   }
 
   renderMap = () => {
     //passes Google Maps my API key
     loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAgXzDKjlWqOt-iPr3sJvcZuCIXbuQ4LlM&callback=initMap')
     window.initMap = this.initMap
-    console.log('Map Rendered!')
   }
 
   initMap = () => {
@@ -67,6 +67,11 @@ class App extends Component {
    })
   }
 
+  //function that updates restaurant visibility array in state
+  relevantRestaurants = (updatedRestaurants) => {
+    this.setState({visibleRestaurants: updatedRestaurants});
+  }
+
   //function that makes the restaurant content info string
   makeContentInfo = (restaurant) => {
     return '<div className="content">' +
@@ -74,12 +79,13 @@ class App extends Component {
       '</div>' +
       '<h2 id="firstHeading className="firstHeading">' + restaurant.venue.name + '</h2>' +
       '<div className="bodyContent">' +
-        '<p><strong>Location: </strong><br>' +
-        restaurant.venue.location.formattedAddress[0] + '<br>' +
-        restaurant.venue.location.formattedAddress[1] + '<br>' +
-        restaurant.venue.location.formattedAddress[2] + '</p>' +
-        '</div>' +
-        '</div>';
+      '<p><strong>Location: </strong><br>' +
+      restaurant.venue.location.formattedAddress[0] + '<br>' +
+      restaurant.venue.location.formattedAddress[1] + '<br>' +
+      restaurant.venue.location.formattedAddress[2] + '</p>' +
+      '<div className="attribution"> <img src="https://ucd5909444e1d9d364a104d00b85.previews.dropboxusercontent.com/p/thumb/AAMWlg4Iw5P2q4eVW-tPHwZA7LVHe9yjv5u2Yv3BtUsZ3d8W3rf5sAuvHF9udiWxK5maKoXFXZjLSKxCy3b1-DirZxkKviwmPxPv3Tf1ZQztpUK23va43ODePoj6wemEdlHbVKenmS3xVKPfmhTqc4q6kiOtvmUALUqpqgPQt3Zg0P0tXp8X4_LZ4ovqaoUM07KedX4a9b-QQlFBcEUfPSzQmveD0VxIMgaymqHkMIF1oA/p.png?size=178x178&size_mode=1" /> </div>' +
+      '</div>' +
+      '</div>';
       }
 
   //Funcion that creates a marker for each restaurant location
@@ -133,7 +139,8 @@ class App extends Component {
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
         this.setState({
-          restaurants: response.data.response.groups[0].items
+          restaurants: response.data.response.groups[0].items,
+          visibleRestaurants: response.data.response.groups[0].items
         //calls render map
         }, this.renderMap())
       })
@@ -157,11 +164,13 @@ class App extends Component {
         <div className='app-window'>
           <SideNav
             restaurants={this.state.restaurants}
+            visibleRestaurants={this.state.visibleRestaurants}
             selectedRestaurantId={this.state.selectedRestaurantId}
             markersArray={this.state.markersArray}
             makeContentInfo={this.makeContentInfo}
             makeMarker={this.makeMarker}
-            openMarker={this.openMarker}/>
+            openMarker={this.openMarker}
+            relevantRestaurants={this.relevantRestaurants}/>
           <div id='map' />
         </div>
       </div>

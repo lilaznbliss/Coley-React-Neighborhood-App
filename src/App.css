@@ -1,5 +1,9 @@
+body{
+  overflow: hidden;
+}
+
 .wholePage {
-  height: 800px;
+  height: 690px;
   width: 100%;
 }
 
@@ -9,7 +13,7 @@
   align-items: center;
 }
 #map {
-  height: calc(100% - 60px);
+  height: 100%;
   width: 100%;
 }
 
@@ -34,7 +38,7 @@
 }
 
 .headersBar {
-  width: 100%;
+  width: calc(100% - 24px);
   height: 60px;
   display: flex;
   flex-direction: row;
@@ -52,20 +56,30 @@
   flex-direction: column;
 }
 
-.app-window{
+.app-window {
   display: flex;
   flex-direction: row;
-  height: calc(100% - 60px);
+  height: calc(100% - 40px);
   width: 100%;
 }
 
-h1{
+h1 {
   font-size: 24px;
   color: #D3DBE6;
   text-align: center;
   font: "Roboto", "Arial", "Helvetica", sans-serif;
   margin: 0;
   padding-left: 24px;
+}
+
+img {
+  width: 24px;
+  height: 24px;
+}
+
+img .attribution {
+  width: 24px;
+  height: 24px;
 }
 
 @keyframes App-logo-spin {

@@ -1,6 +1,6 @@
 .sideNav {
   width: 30%;
-  height: calc(100% - 60px);
+  height: 100%;
   background-color: #292D33;
   background-image: url('https://image.ibb.co/n9poG9/black_and_white_black_and_white_rough_978503.jpg');
   background-size: cover;
@@ -77,10 +77,18 @@ li {
   background-color: rgb(41, 45, 51, 50%);
   margin-top: 5px;
   margin-bottom: 5px;
+  border-radius: 25px 0 0 25px;
+}
+
+li .invisible {
+  height: 0;
 }
 
 .selected {
   background-color: rgb(243, 213, 236, 50%);
-  border: 3px solid #646669;
+  border-width: 3px 0 3px 3px;
+  border-style: solid;
+  border-color: #646669;
+  border-radius: 25px 0 0 25px;
   color: #646669;
 }

@@ -5,13 +5,13 @@ class SideNav extends Component {
 
   buildRestaurantList() {
 
-    return this.props.restaurants.map(restaurant => {
+    return this.props.visibleRestaurants.map(restaurant => {
       let restaurantListItem;
 
       if (restaurant.venue.id === this.props.selectedRestaurantId) {
-        restaurantListItem = <li className="selected" key={restaurant.venue.id} onClick={() => {this.openMarker(restaurant)}}> {restaurant.venue.name} </li>;
+        restaurantListItem = <li className="restaurant-item selected" key={restaurant.venue.id} onClick={() => {this.openMarker(restaurant)}}> {restaurant.venue.name} </li>;
       } else {
-        restaurantListItem = <li key={restaurant.venue.id} onClick={() => {this.openMarker(restaurant)}}> {restaurant.venue.name} </li>;
+        restaurantListItem = <li className="restaurant-item" key={restaurant.venue.id} onClick={() => {this.openMarker(restaurant)}}> {restaurant.venue.name} </li>;
       }
 
       return restaurantListItem;
@@ -27,12 +27,26 @@ class SideNav extends Component {
     this.props.openMarker(restaurant, marker, contentInfo);
   }
 
+  searchRestaurants = (event) => {
+    let query = event.target.value.trim().toLowerCase();
+    this.props.markersArray.forEach(marker => {
+      if (marker.title.toLowerCase().search(query) > -1) {
+        marker.setVisible(true);
+      } else {
+        marker.setVisible(false);
+      }
+    });
+    let restaurantFilter = this.props.restaurants.filter(restaurant =>
+      restaurant.venue.name.toLowerCase().search(query) > -1);
+    this.props.relevantRestaurants(restaurantFilter);
+  }
+
+//          <button className="filter-button"> FILTER </button>
   render() {
     return(
        <div className="sideNav bar">
         <div className="search-filter-bar">
-          <button className="filter-button"> FILTER </button>
-          <input type="text" name="search" placeholder="Search.."></input>
+          <input type="text" name="search" placeholder="Search.." onChange={(event) => {this.searchRestaurants(event)}}></input>
         </div>
         <div className="restaurant-list">
           <ul className="restaurant-list-info">
