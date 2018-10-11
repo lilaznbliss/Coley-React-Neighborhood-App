@@ -180,7 +180,8 @@ class App extends Component {
   }
 }
 
-//Forms API call
+//Forms API call for Google maps
+//obtained from https://github.com/VolantTyler/tjs-react-neighborhood-map-v2/blob/master/src/App.js
 function loadScript (url) {
   const index = window.document.getElementsByTagName('script')[0];
   const script = window.document.createElement('script');
