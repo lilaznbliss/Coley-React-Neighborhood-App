@@ -9,6 +9,7 @@ import './components/HamburgerMenu.css';
 
 class App extends Component {
 
+//various states
   state = {
     restaurants: [],
     visibleRestaurants: [],
@@ -39,9 +40,9 @@ class App extends Component {
     this.infoWindow = new window.google.maps.InfoWindow({
       maxWidth: 200
     })
-
+    //array of markers
     let markers = [];
-
+    //creates a marker and content info variable
     this.state.restaurants.forEach(myRestaurant => {
 
       let contentInfo = this.makeContentInfo(myRestaurant);
@@ -53,7 +54,7 @@ class App extends Component {
         this.openMarker(myRestaurant, marker, contentInfo);
       })
     })
-
+    //sets the state of the markers
     this.setState({markersArray: markers});
 
     // Removes the highlighting on the restaurant list item when the content info is closed
@@ -77,13 +78,13 @@ class App extends Component {
     return '<div className="content">' +
       '<div className="siteNotice">' +
       '</div>' +
-      '<h2 id="firstHeading className="firstHeading">' + restaurant.venue.name + '</h2>' +
+      '<h2 id="firstHeading className="firstHeading" tabindex="3" aria-label="restaurant name>' + restaurant.venue.name + '</h2>' +
       '<div className="bodyContent">' +
-      '<p><strong>Location: </strong><br>' +
+      '<p tabindex="4" aria-label="restaurant location"><strong>Location: </strong><br>' +
       restaurant.venue.location.formattedAddress[0] + '<br>' +
       restaurant.venue.location.formattedAddress[1] + '<br>' +
       restaurant.venue.location.formattedAddress[2] + '</p>' +
-      '<div className="attribution"> <img src="https://uc3b5a9f456ef572f12063cc562f.previews.dropboxusercontent.com/p/thumb/AAOJRgKoA20BzwNGfxSvUDZf3GjuPB4jLpSESg81p2JR0cehB7Oazwi6NKbt7sXgnmtwB4VMUcXM0sM6rXsDWbAXBEDnlM9SbL6Y3C8nRfe83oU0go5cYjOgV8i2JwV1itDe4dGlWETC1mGtpgJS1xJIr3wqws4Y7aTFQqRNGSBrsq30D-ZyvFpN29PwncGt-m42SaXhRNKkTNj5wn2QkBPanCCtpgDcZAwRhM1jOKrmNg/p.png?size=2048x1536&size_mode=3" alt="four square logo"/> </div>' +
+      '<div className="attribution"> <img src="https://uc3b5a9f456ef572f12063cc562f.previews.dropboxusercontent.com/p/thumb/AAOJRgKoA20BzwNGfxSvUDZf3GjuPB4jLpSESg81p2JR0cehB7Oazwi6NKbt7sXgnmtwB4VMUcXM0sM6rXsDWbAXBEDnlM9SbL6Y3C8nRfe83oU0go5cYjOgV8i2JwV1itDe4dGlWETC1mGtpgJS1xJIr3wqws4Y7aTFQqRNGSBrsq30D-ZyvFpN29PwncGt-m42SaXhRNKkTNj5wn2QkBPanCCtpgDcZAwRhM1jOKrmNg/p.png?size=2048x1536&size_mode=3" alt="four square logo" tabindex="5"/> </div>' +
       '</div>' +
       '</div>';
       }
@@ -144,6 +145,7 @@ class App extends Component {
         //calls render map
         }, this.renderMap())
       })
+      //catches the possible errors and logs them to the console
       .catch(error => {
         console.log('Error: '+ error)
       })
@@ -155,10 +157,10 @@ class App extends Component {
       <div className='wholePage'>
         <div className='headersBar'>
           <div className="menu">
-            <HamburgerMenu />
+            <HamburgerMenu tabindex="2" role="menu" aria-label="menu"/>
           </div>
           <div className="app-title">
-            <h1>Hannah&#39;s Favorite Sushi Restaurants</h1>
+            <h1 tabindex="1">Hannah&#39;s Favorite Sushi Restaurants</h1>
           </div>
         </div>
         <div className='app-window'>
@@ -178,6 +180,7 @@ class App extends Component {
   }
 }
 
+//Forms API call
 function loadScript (url) {
   const index = window.document.getElementsByTagName('script')[0];
   const script = window.document.createElement('script');
