@@ -1,3 +1,7 @@
+/*============================= MEDIA TAGS ==================================*/
+
+@media (max-width: 400px) {
+
 body{
   overflow: hidden;
 }
@@ -5,6 +9,69 @@ body{
 .wholePage {
   height: 690px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu{
+  height: auto;
+  width: 60px;
+  align-items: center;
+}
+#map {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.headersBar {
+  width: calc(100% - 24px);
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 24px;
+  background-color: #646669;
+  align-items: center;
+  padding-top: 24px;
+}
+
+.app-window {
+  height: calc(100% - 60px);
+  width: 100%;
+  display: flex;
+}
+
+h1 {
+  font-size: 20px;
+  color: #D3DBE6;
+  text-align: center;
+  font: "Roboto", "Arial", "Helvetica", sans-serif;
+  margin: 0;
+  padding-left: 24px;
+}
+
+img {
+  width: 24px;
+  height: 24px;
+}
+
+img .attribution {
+  width: 24px;
+  height: 24px;
+}
+}
+
+/*=========================media tag=========================================*/
+@media (min-width: 401px) and (max-width: 549px) {
+body{
+  overflow: hidden;
+}
+
+.wholePage {
+  height: 690px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu{
@@ -17,24 +84,65 @@ body{
   width: 100%;
 }
 
-.App {
+.headersBar {
+  width: calc(100% - 24px);
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 24px;
+  background-color: #646669;
+  align-items: center;
+  padding-top: 24px;
+}
+
+.app-window {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 60px);
+  width: 100%;
+}
+
+h1 {
+  font-size: 20px;
+  color: #D3DBE6;
   text-align: center;
+  font: "Roboto", "Arial", "Helvetica", sans-serif;
+  margin: 0;
+  padding-left: 24px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+img {
+  width: 24px;
+  height: 24px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+img .attribution {
+  width: 24px;
+  height: 24px;
+}
+}
+
+/*=========================media tag=========================================*/
+@media (min-width: 550px) {
+body{
+  overflow: hidden;
+}
+
+.wholePage {
+  height: 690px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.menu{
+  height: auto;
+  width: 60px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+#map {
+  height: 100%;
+  width: 100%;
 }
 
 .headersBar {
@@ -45,21 +153,13 @@ body{
   padding-left: 24px;
   background-color: #646669;
   align-items: center;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.wholePage {
-  display: flex;
-  flex-direction: column;
+  padding-top: 24px;
 }
 
 .app-window {
   display: flex;
   flex-direction: row;
-  height: calc(100% - 40px);
+  height: calc(100% - 60px);
   width: 100%;
 }
 
@@ -81,12 +181,4 @@ img .attribution {
   width: 24px;
   height: 24px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

@@ -83,7 +83,7 @@ class App extends Component {
       restaurant.venue.location.formattedAddress[0] + '<br>' +
       restaurant.venue.location.formattedAddress[1] + '<br>' +
       restaurant.venue.location.formattedAddress[2] + '</p>' +
-      '<div className="attribution"> <img src="https://ucd5909444e1d9d364a104d00b85.previews.dropboxusercontent.com/p/thumb/AAMWlg4Iw5P2q4eVW-tPHwZA7LVHe9yjv5u2Yv3BtUsZ3d8W3rf5sAuvHF9udiWxK5maKoXFXZjLSKxCy3b1-DirZxkKviwmPxPv3Tf1ZQztpUK23va43ODePoj6wemEdlHbVKenmS3xVKPfmhTqc4q6kiOtvmUALUqpqgPQt3Zg0P0tXp8X4_LZ4ovqaoUM07KedX4a9b-QQlFBcEUfPSzQmveD0VxIMgaymqHkMIF1oA/p.png?size=178x178&size_mode=1" /> </div>' +
+      '<div className="attribution"> <img src="https://uc3b5a9f456ef572f12063cc562f.previews.dropboxusercontent.com/p/thumb/AAOJRgKoA20BzwNGfxSvUDZf3GjuPB4jLpSESg81p2JR0cehB7Oazwi6NKbt7sXgnmtwB4VMUcXM0sM6rXsDWbAXBEDnlM9SbL6Y3C8nRfe83oU0go5cYjOgV8i2JwV1itDe4dGlWETC1mGtpgJS1xJIr3wqws4Y7aTFQqRNGSBrsq30D-ZyvFpN29PwncGt-m42SaXhRNKkTNj5wn2QkBPanCCtpgDcZAwRhM1jOKrmNg/p.png?size=2048x1536&size_mode=3" alt="four square logo"/> </div>' +
       '</div>' +
       '</div>';
       }
