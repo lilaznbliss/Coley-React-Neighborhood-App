@@ -2,18 +2,12 @@
 
 @media (max-width: 400px) {
 
-html, body{
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
+body{
   overflow: hidden;
 }
 
 .wholePage {
-  height: 100%;
-  /*height: 690px;*/
+  height: 690px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -36,7 +30,7 @@ html, body{
   display: flex;
   flex-direction: row;
   padding-left: 24px;
-  background-color: #051722;
+  background-color: #646669;
   align-items: center;
   padding-top: 24px;
 }
@@ -49,10 +43,9 @@ html, body{
 
 h1 {
   font-size: 20px;
-  font-weight: 300;
-  color: #ffffff;
+  color: #D3DBE6;
   text-align: center;
-  font: "Open Sans Light", "Arial", "Helvetica", sans-serif;
+  font: "Roboto", "Arial", "Helvetica", sans-serif;
   margin: 0;
   padding-left: 24px;
 }
@@ -66,27 +59,16 @@ img .attribution {
   width: 24px;
   height: 24px;
 }
-
-h2 #firstHeading {
-  font: "Open Sans light", "Arial", "Helvetica", sans-serif;
-  font-weight: 300;
-}
-
 }
 
 /*=========================media tag=========================================*/
 @media (min-width: 401px) and (max-width: 549px) {
-html, body{
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
+body{
   overflow: hidden;
 }
 
 .wholePage {
-  height: 100%;
+  height: 690px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -108,7 +90,7 @@ html, body{
   display: flex;
   flex-direction: row;
   padding-left: 24px;
-  background-color: #051722;
+  background-color: #646669;
   align-items: center;
   padding-top: 24px;
 }
@@ -121,11 +103,10 @@ html, body{
 }
 
 h1 {
-  font-size: 28px;
-  font-weight: 300;
-  color: #ffffff;
+  font-size: 20px;
+  color: #D3DBE6;
   text-align: center;
-  font: "Open Sans light", "Arial", "Helvetica", sans-serif;
+  font: "Roboto", "Arial", "Helvetica", sans-serif;
   margin: 0;
   padding-left: 24px;
 }
@@ -139,38 +120,19 @@ img .attribution {
   width: 24px;
   height: 24px;
 }
-
-.content{
-  color: blue;
-  background-color: blue;
-}
-
-h2 #firstHeading {
-  font: "Open Sans light", "Arial", "Helvetica", sans-serif;
-  font-weight: 300;
-}
 }
 
 /*=========================media tag=========================================*/
 @media (min-width: 550px) {
-html, body{
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
+body{
   overflow: hidden;
 }
 
 .wholePage {
-  height: 100%;
+  height: 690px;
   width: 100%;
   display: flex;
   flex-direction: column;
-}
-
-#root{
-  width: 100%;
 }
 
 .menu{
@@ -178,7 +140,6 @@ html, body{
   width: 60px;
   align-items: center;
 }
-
 #map {
   height: 100%;
   width: 100%;
@@ -190,7 +151,7 @@ html, body{
   display: flex;
   flex-direction: row;
   padding-left: 24px;
-  background-color: #051722;
+  background-color: #646669;
   align-items: center;
   padding-top: 24px;
 }
@@ -203,11 +164,10 @@ html, body{
 }
 
 h1 {
-  font-size: 28px;
-  font-weight: 300;
-  color: #ffffff;
+  font-size: 24px;
+  color: #D3DBE6;
   text-align: center;
-  font: "Open Sans light", "Arial", "Helvetica", sans-serif;
+  font: "Roboto", "Arial", "Helvetica", sans-serif;
   margin: 0;
   padding-left: 24px;
 }
@@ -221,15 +181,4 @@ img .attribution {
   width: 24px;
   height: 24px;
 }
-
-.content {
-  color: blue;
-  background-color: blue;
-}
-
-h2 #firstHeading {
-  font: "Open Sans light", "Arial", "Helvetica", sans-serif;
-  font-weight: 300;
-}
-
 }

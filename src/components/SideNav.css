@@ -5,7 +5,8 @@
 .sideNav {
   width: 100%;
   height: 100%;
-  background-color: #172635;
+  background-color: #292D33;
+  background-image: url('https://image.ibb.co/n9poG9/black_and_white_black_and_white_rough_978503.jpg');
   background-size: cover;
   padding-left: 24px;
   display: none;
@@ -21,95 +22,7 @@
 }
 
 input[type=text] {
-    font-family: "Open Sans", "Arial", sans-serif;
-    font-size: 14px;
-    color: #646669;
-    width: 50%;
-    height: 40px;
-    background-color: #003655;
-    border: none;
-    border-radius: 0 20px 20px 0;
-    padding-left: 12px;
-    background-image: url(../images/LocationSearch.svg);
-    background-position: 10px 8px;
-    background-size: 24px 24px;
-    background-repeat: no-repeat;
-    padding: 0 20px 0 40px;
-    margin-right: 12px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-    width: 100%;
-}
-
-
-.restaurant-list-info {
-  height: calc(100% - 60px);
-  color: #D3DBE6;
-  font-size: 20px;
-  list-style-type: none;
-  overflow-y: scroll;
-  padding: 0;
-  cursor: pointer;
-}
-
-.restaurant-list {
-  height: calc(100% - 64px);
-  padding: 0;
-}
-
-li {
-  padding: 10px 0 10px 24px;
-  color: #4dacff;
-  font-weight: 300;
-  background-color: #233244;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 25px 0 0 25px;
-}
-
-li:hover {
-  color: #ffffff;
-}
-
-li .invisible {
-  height: 0;
-}
-
-.selected {
-  background-color: #4dacff;
-  border-width: 3px 0 3px 3px;
-  border-style: solid;
-  border-color: #3a87cf;
-  border-radius: 25px 0 0 25px;
-  color: #ffffff;
-}
-}
-
-/*============================= MEDIA TAGS ==================================*/
-
-@media (min-width: 401px) and (max-width: 549px){
-
-.sideNav {
-  width: 40%;
-  height: 100%;
-  background-color: #172635;
-  padding-left: 24px;
-  display: none;
-}
-
-.search-filter-bar{
-  display: flex;
-  flex-direction: row;
-  margin-top: 24px;
-  height: 40px;
-}
-
-input[type=text] {
-    font-family: "Open Sans light", "Arial", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;
     font-size: 14px;
     color: #646669;
     width: 50%;
@@ -151,16 +64,10 @@ input[type=text]:focus {
 
 li {
   padding: 10px 0 10px 24px;
-  background-color: #233244;
-  color: #4dacff;
-  font-weight: 300;
+  background-color: rgb(41, 45, 51, 50%);
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: 25px 0 0 25px;
-}
-
-li:hover {
-  color: #ffffff;
 }
 
 li .invisible {
@@ -168,12 +75,96 @@ li .invisible {
 }
 
 .selected {
-  background-color: #4dacff;
+  background-color: rgb(243, 213, 236, 50%);
   border-width: 3px 0 3px 3px;
   border-style: solid;
-  border-color: #3a87cf;
+  border-color: #646669;
   border-radius: 25px 0 0 25px;
-  color: #ffffff;
+  color: #646669;
+}
+}
+
+/*============================= MEDIA TAGS ==================================*/
+
+@media (min-width: 401px) and (max-width: 549px){
+
+.sideNav {
+  width: 40%;
+  height: 100%;
+  background-color: #292D33;
+  background-image: url('https://image.ibb.co/n9poG9/black_and_white_black_and_white_rough_978503.jpg');
+  background-size: cover;
+  padding-left: 24px;
+  display: none;
+}
+
+.search-filter-bar{
+  display: flex;
+  flex-direction: row;
+  margin-top: 24px;
+  height: 40px;
+}
+
+input[type=text] {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 14px;
+    color: #646669;
+    width: 50%;
+    height: 40px;
+    background-color: rgb(211, 211, 211, 80%);
+    border: none;
+    border-radius: 0 20px 20px 0;
+    padding-left: 12px;
+    background-image: url(../images/LocationSearch.svg);
+    background-position: 10px 8px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    padding: 0 20px 0 40px;
+    margin-right: 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
+
+.restaurant-list-info {
+  height: calc(100% - 60px);
+  color: #D3DBE6;
+  font-size: 20px;
+  list-style-type: none;
+  overflow-y: scroll;
+  padding: 0;
+  cursor: pointer;
+}
+
+.restaurant-list {
+  height: calc(100% - 64px);
+  padding: 0;
+}
+
+li {
+  padding: 10px 0 10px 24px;
+  background-color: rgb(41, 45, 51, 50%);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 25px 0 0 25px;
+}
+
+li .invisible {
+  height: 0;
+}
+
+.selected {
+  background-color: rgb(243, 213, 236, 50%);
+  border-width: 3px 0 3px 3px;
+  border-style: solid;
+  border-color: #646669;
+  border-radius: 25px 0 0 25px;
+  color: #646669;
 }
 }
 
@@ -181,9 +172,11 @@ li .invisible {
 
 @media (min-width: 550px) {
   .sideNav {
-    width: 30%;
+    width: 45%;
     height: 100%;
-    background-color: #172635;
+    background-color: #292D33;
+    background-image: url('https://image.ibb.co/n9poG9/black_and_white_black_and_white_rough_978503.jpg');
+    background-size: cover;
     padding-left: 24px;
     display: none;
   }
@@ -203,7 +196,7 @@ li .invisible {
     width: 100px;
     padding: 12px 12px 12px 12px;
     margin-right: 12px;
-    font-family: "Open Sans light", "Arial", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;
     font-size: 14px;
     background-color: #646669;
     border: none;
@@ -212,7 +205,7 @@ li .invisible {
   }
 
   input[type=text] {
-      font-family: "Open Sans light", "Arial", sans-serif;
+      font-family: "Roboto", "Arial", sans-serif;
       font-size: 14px;
       color: #646669;
       width: 20%;
@@ -254,17 +247,10 @@ li .invisible {
 
   li {
     padding: 10px 0 10px 24px;
-    background-color: #233244;
-    color: #4dacff;
-    font-size: 22px;
-    font-weight: 300;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    background-color: rgb(41, 45, 51, 50%);
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 25px 0 0 25px;
-  }
-
-  li:hover {
-    color: #ffffff;
   }
 
   li .invisible {
@@ -272,11 +258,11 @@ li .invisible {
   }
 
   .selected {
-    background-color: #4dacff;
+    background-color: rgb(243, 213, 236, 50%);
     border-width: 3px 0 3px 3px;
     border-style: solid;
-    border-color: #3a87cf;
+    border-color: #646669;
     border-radius: 25px 0 0 25px;
-    color: #ffffff;
+    color: #646669;
   }
 }
