@@ -7,6 +7,8 @@ import './components/SideNav.css';
 import HamburgerMenu from './components/HamburgerMenu.js';
 import './components/HamburgerMenu.css';
 
+import AstroMapMarker from './images/map-marker-small.svg';
+
 class App extends Component {
 
 //various states
@@ -34,7 +36,87 @@ class App extends Component {
     //initialize the map
     this.map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 38.8706391, lng: -104.770058},
-      zoom: 10.83
+      zoom: 10.83,
+      styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
     })
 
     this.infoWindow = new window.google.maps.InfoWindow({
@@ -78,13 +160,13 @@ class App extends Component {
     return '<div className="content">' +
       '<div className="siteNotice">' +
       '</div>' +
-      '<h2 id="firstHeading className="firstHeading" tabindex="3" aria-label="restaurant name>' + restaurant.venue.name + '</h2>' +
+      '<h2 id="firstHeading className="firstHeading" tabindex="3" aria-label="restaurant name">' + restaurant.venue.name + '</h2>' +
       '<div className="bodyContent">' +
       '<p tabindex="4" aria-label="restaurant location"><strong>Location: </strong><br>' +
       restaurant.venue.location.formattedAddress[0] + '<br>' +
       restaurant.venue.location.formattedAddress[1] + '<br>' +
       restaurant.venue.location.formattedAddress[2] + '</p>' +
-      '<div className="attribution"> <img src="https://uc3b5a9f456ef572f12063cc562f.previews.dropboxusercontent.com/p/thumb/AAOJRgKoA20BzwNGfxSvUDZf3GjuPB4jLpSESg81p2JR0cehB7Oazwi6NKbt7sXgnmtwB4VMUcXM0sM6rXsDWbAXBEDnlM9SbL6Y3C8nRfe83oU0go5cYjOgV8i2JwV1itDe4dGlWETC1mGtpgJS1xJIr3wqws4Y7aTFQqRNGSBrsq30D-ZyvFpN29PwncGt-m42SaXhRNKkTNj5wn2QkBPanCCtpgDcZAwRhM1jOKrmNg/p.png?size=2048x1536&size_mode=3" alt="four square logo" tabindex="5"/> </div>' +
+      '<div className="attribution"> <img src="https://i.ibb.co/nC4Rxqx/Foursquare-City-Guide-Android.png" alt="four square logo" tabindex="5"/> </div>' +
       '</div>' +
       '</div>';
       }
@@ -94,6 +176,8 @@ class App extends Component {
     return new window.google.maps.Marker({
       position: {lat: restaurant.venue.location.lat, lng: restaurant.venue.location.lng},
       map: this.map,
+      icon: AstroMapMarker,
+      //size: new window.google.maps.Size(4,7),
       title: restaurant.venue.name,
       animation: null,
       restaurantId: restaurant.venue.id
